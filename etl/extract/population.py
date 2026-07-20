@@ -1,13 +1,15 @@
 import requests
 import json
+from utils.paths import RAW_DATA_DIR
 
 url = "https://api.worldbank.org/v2/country/all/indicator/SP.POP.TOTL?format=json&per_page=30000"
 
 response = requests.get(url)
-
 data = response.json()
 
-with open("data/raw/population_raw.json", "w", encoding="utf-8") as file:
+output_file = RAW_DATA_DIR / "population_raw.json"
+
+with open(output_file, "w", encoding="utf-8") as file:
     json.dump(data, file, indent=4)
 
-print("Population data saved!")
+print(f"Population data saved to:\n{output_file}")

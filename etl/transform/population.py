@@ -1,7 +1,10 @@
 import pandas as pd
 import json
+from utils.paths import RAW_DATA_DIR, CLEANED_DATA_DIR
 
-with open("data/raw/population_raw.json", "r", encoding="utf-8") as file:
+input_file = RAW_DATA_DIR / "population_raw.json"
+
+with open(input_file, "r", encoding="utf-8") as file:
     data = json.load(file)
 
 # The World Bank API stores metadata in index 0
@@ -32,7 +35,7 @@ df["population"] = df["population"].astype(int)
 print(df.head())
 print(df.info())
 
-df.to_csv("data/cleaned/population_cleaned.csv",
-          index=False)
+output_file = CLEANED_DATA_DIR / "population_cleaned.csv"
+df.to_csv(output_file, index=False)
 
-print("\nCleaned data saved!")
+print(f"\nCleaned data saved to:\n{output_file}")
