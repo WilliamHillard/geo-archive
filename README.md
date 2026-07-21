@@ -7,4 +7,6 @@ The long-term goal is to collect data from multiple public sources, store it in 
 Current progress:
 - ✅ Project setup
 - ✅ Python environment
-- 🔄 Database setup
+- ✅ Database setup
+- ✅ ETL pipeline for country and population data
+- 🔄 Adding more datasets
