@@ -8,6 +8,13 @@ iso3 char(3) not null,
 year int not null,
 population bigint not null,
 primary key (iso3, year),
-foreign key (iso3)
-references countries(iso3)
+foreign key (iso3) references countries(iso3)
+);
+
+create table gdp (
+iso3 char(3) not null,
+year int not null,
+gdp numeric not null,
+primary key (iso3, year),
+foreign key (iso3) references countries(iso3)
 );
