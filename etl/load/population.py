@@ -1,6 +1,8 @@
 from database.connection import engine
 from utils.paths import CLEANED_DATA_DIR
 import pandas as pd
+from sqlalchemy import MetaData, Table
+from sqlalchemy.dialects.postgresql import insert
 
 def load_population():
     countries_file = CLEANED_DATA_DIR / "countries.csv"
@@ -9,19 +11,36 @@ def load_population():
     countries_df = pd.read_csv(countries_file)
     population_df = pd.read_csv(population_file)
 
-    countries_df.to_sql(
+    records_countries = countries_df.to_dict(orient="records")
+    records_population = population_df.to_dict(orient="records")
+
+    metadata = MetaData()
+
+    countries_table = Table(
         "countries",
-        engine,
-        if_exists="append",
-        index=False
+        metadata,
+        autoload_with=engine
     )
 
-    population_df.to_sql(
-        "population",
-        engine,
-        if_exists="append",
-        index=False
+    countries_stmt = insert(countries_table).values(records_countries)
+    countries_stmt = countries_stmt.on_conflict_do_nothing(
+        index_elements=["iso3"]
     )
+
+    population_table = Table(
+        "population",
+        metadata,
+        autoload_with=engine
+    )
+
+    population_stmt = insert(population_table).values(records_population)
+    population_stmt = population_stmt.on_conflict_do_nothing(
+        index_elements=["iso3", "year"]
+    )
+
+    with engine.begin() as conn:
+        conn.execute(countries_stmt)
+        conn.execute(population_stmt)
 
 if __name__ == "__main__":
     load_population()
