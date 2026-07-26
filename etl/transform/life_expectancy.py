@@ -2,8 +2,8 @@ import pandas as pd
 import json
 from utils.paths import RAW_DATA_DIR, CLEANED_DATA_DIR
 
-def transform_gdp():
-    input_file = RAW_DATA_DIR / "gdp_raw.json"
+def transform_life_expectancy():
+    input_file = RAW_DATA_DIR / "life_expectancy_raw.json"
 
     with open(input_file, "r", encoding="utf-8") as file:
         data = json.load(file)
@@ -19,23 +19,23 @@ def transform_gdp():
             {
                 "iso3": row["countryiso3code"],
                 "year": row["date"],
-                "gdp": row["value"]
+                "life_expectancy": row["value"]
             }
         )
     df = pd.DataFrame(cleaned_data)
 
     # Remove rows without population
-    df = df.dropna(subset=["gdp"]) # 2745 rows
-    df = df[df["iso3"].str.len() == 3] # 330 rows
+    df = df.dropna(subset=["life_expectancy"])
+    df = df[df["iso3"].str.len() == 3]
 
     # Convert datatypes
     df["year"] = df["year"].astype(int)
-    df["gdp"] = df["gdp"].astype(float)
+    df["life_expectancy"] = df["life_expectancy"].astype(float)
 
-    output = CLEANED_DATA_DIR / "gdp.csv"
+    output = CLEANED_DATA_DIR / "life_expectancy.csv"
     df.to_csv(output, index=False)
 
-    print(f"\nCleaned gdp data saved!")
+    print(f"\nCleaned life expectancy data saved!")
 
 if __name__ == "__main__":
-    transform_gdp()
+    transform_life_expectancy()

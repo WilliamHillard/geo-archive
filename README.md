@@ -9,4 +9,4 @@ Current progress:
 - ✅ Python environment
 - ✅ Database setup
 - ✅ ETL pipeline for country and population data
-- 🔄 Adding more datasets
+- 🔄 Adding more datasets (surface area, life expectancy, CO2, inflation, education, income, poverty, crime, immigration, disease)

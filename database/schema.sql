@@ -18,3 +18,11 @@ gdp numeric not null,
 primary key (iso3, year),
 foreign key (iso3) references countries(iso3)
 );
+
+create table life_expectancy (
+iso3 char(3) not null,
+year int not null,
+life_expectancy float not null,
+primary key (iso3, year),
+foreign key (iso3) references countries(iso3)
+);

@@ -48,7 +48,7 @@ def transform_population():
     output_population = CLEANED_DATA_DIR / "population.csv"
     df_population.to_csv(output_population, index=False)
 
-    print(f"\nCleaned data saved!")
+    print(f"\nCleaned population data saved!")
 
 if __name__ == "__main__":
     transform_population()
