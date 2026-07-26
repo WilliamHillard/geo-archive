@@ -26,3 +26,11 @@ life_expectancy float not null,
 primary key (iso3, year),
 foreign key (iso3) references countries(iso3)
 );
+
+create table surface_area (
+iso3 char(3) not null,
+year int not null,
+surface_area float not null,
+primary key (iso3, year),
+foreign key (iso3) references countries(iso3)
+);
