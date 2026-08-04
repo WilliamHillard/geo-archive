@@ -24,9 +24,13 @@ def transform_gdp():
         )
     df = pd.DataFrame(cleaned_data)
 
-    # Remove rows without population
-    df = df.dropna(subset=["gdp"]) # 2745 rows
-    df = df[df["iso3"].str.len() == 3] # 330 rows
+    df = df.dropna(subset=["gdp"])
+    valid_countries = pd.read_csv(
+        CLEANED_DATA_DIR / "countries.csv",
+        keep_default_na=False
+    )
+
+    df = df[df["iso3"].isin(valid_countries["iso3"])]
 
     # Convert datatypes
     df["year"] = df["year"].astype(int)

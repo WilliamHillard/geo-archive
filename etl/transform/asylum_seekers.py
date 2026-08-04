@@ -26,7 +26,12 @@ def transform_asylum_seekers():
 
     # Remove rows without population
     df = df.dropna(subset=["asylum_seekers"])
-    df = df[df["iso3"].str.len() == 3]
+    valid_countries = pd.read_csv(
+        CLEANED_DATA_DIR / "countries.csv",
+        keep_default_na=False
+    )
+
+    df = df[df["iso3"].isin(valid_countries["iso3"])]
 
     # Convert datatypes
     df["year"] = df["year"].astype(int)

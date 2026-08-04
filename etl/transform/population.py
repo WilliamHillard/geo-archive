@@ -18,35 +18,27 @@ def transform_population():
         cleaned_data.append(
             {
                 "iso3": row["countryiso3code"],
-                "country_name": row["country"]["value"],
                 "year": row["date"],
                 "population": row["value"]
             }
         )
-
     df = pd.DataFrame(cleaned_data)
 
     # Remove rows without population
     df = df.dropna(subset=["population"])
-    df = df[df["iso3"].str.len() == 3]
+    valid_countries = pd.read_csv(
+        CLEANED_DATA_DIR / "countries.csv",
+        keep_default_na=False
+    )
+
+    df = df[df["iso3"].isin(valid_countries["iso3"])]
 
     # Convert datatypes
     df["year"] = df["year"].astype(int)
     df["population"] = df["population"].astype(int)
 
-    df_countries = (
-        df[["iso3", "country_name"]]
-        .drop_duplicates()
-        .sort_values("iso3")
-    )
-
-    df_population = df[["iso3", "year", "population"]]
-
-    output_countries = CLEANED_DATA_DIR / "countries.csv"
-    df_countries.to_csv(output_countries, index=False)
-
-    output_population = CLEANED_DATA_DIR / "population.csv"
-    df_population.to_csv(output_population, index=False)
+    output = CLEANED_DATA_DIR / "population.csv"
+    df.to_csv(output, index=False)
 
     print(f"\nCleaned population data saved!")
 

@@ -37,6 +37,9 @@ from etl.load.net_migration import load_net_migration
 from etl.extract.asylum_seekers import extract_asylum_seekers
 from etl.transform.asylum_seekers import transform_asylum_seekers
 from etl.load.asylum_seekers import load_asylum_seekers
+from etl.extract.countries import extract_countries
+from etl.transform.countries import transform_countries
+from etl.load.countries import load_countries
 
 def main():
     print("Starting GeoArchive pipeline...")
@@ -55,6 +58,7 @@ def main():
     extract_university_enrollment()
     extract_net_migration()
     extract_asylum_seekers()
+    extract_countries()
 
     print("Transforming")
     transform_population()
@@ -70,6 +74,7 @@ def main():
     transform_university_enrollment()
     transform_net_migration()
     transform_asylum_seekers()
+    transform_countries()
 
     print("Loading")
     load_population()
@@ -85,6 +90,7 @@ def main():
     load_university_enrollment()
     load_net_migration()
     load_asylum_seekers()
+    load_countries()
 
     print("Pipeline finished successfully!")
 

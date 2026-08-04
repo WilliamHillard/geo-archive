@@ -1,6 +1,13 @@
 create table countries (
 iso3 char(3) primary key not null,
-country_name text not null
+iso2 char(2),
+country_name text not null,
+capital_city text,
+region text,
+income_level text,
+longitude double precision,
+latitude double precision,
+lending_type text
 );
 
 create table population (
@@ -106,3 +113,10 @@ university_enrollment float not null,
 primary key (iso3, year),
 foreign key (iso3) references countries (iso3)
 );
+
+SELECT
+    column_name,
+    data_type,
+    character_maximum_length
+FROM information_schema.columns
+WHERE table_name = 'countries';
