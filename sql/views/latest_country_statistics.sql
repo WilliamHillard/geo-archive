@@ -1,3 +1,5 @@
+-- View, latest statistics for every country
+
 create view latest_country_statistics as
 with latest_population as (
 	select p.*,
