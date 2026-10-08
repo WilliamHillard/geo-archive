@@ -2,6 +2,7 @@ create table countries (
 iso3 char(3) primary key not null,
 iso2 char(2),
 country_name text not null,
+real_country_name text,
 capital_city text,
 region text,
 income_level text,
@@ -113,4 +114,3 @@ university_enrollment float not null,
 primary key (iso3, year),
 foreign key (iso3) references countries (iso3)
 );
-

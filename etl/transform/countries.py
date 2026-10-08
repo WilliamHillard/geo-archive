@@ -20,6 +20,7 @@ def transform_countries():
                 "iso3": row["id"],
                 "iso2": row["iso2Code"],
                 "country_name": row["name"],
+                "real_country_name": row["name"],
                 "capital_city": row["capitalCity"],
                 "region": row["region"]["value"],
                 "longitude": row["longitude"],
@@ -32,6 +33,28 @@ def transform_countries():
 
     df = df[df["region"] != "Aggregates"]
     df = df[df["iso3"].str.len() == 3]
+
+    real_country_name = {
+        "Venezuela, RB": "Venezuela",
+        "Micronesia, Fed. Sts.": "Micronesia",
+        "Hong Kong SAR, China": "Hong Kong",
+        "Macao SAR, China": "Macao",
+        "Egypt, Arab Rep.": "Egypt",
+        "Iran, Islamic Rep.": "Iran",
+        "Korea, Rep.": "South Korea",
+        "Korea, Dem. People's Rep.": "North Korea",
+        "Russian Federation": "Russia",
+        "Türkiye": "Turkey",
+        "Congo, Dem. Rep.": "Democratic Republic of the Congo",
+        "Congo, Rep.": "Republic of the Congo",
+        "Lao PDR": "Laos",
+        "Kyrgyz Republic": "Kyrgyzstan",
+        "Brunei Darussalam": "Brunei",
+        "Bahamas, The": "Bahamas",
+        "Gambia, The": "Gambia",
+    }
+
+    df["real_country_name"] = df["country_name"].replace(real_country_name)
 
     # Convert datatypes
     df["longitude"] = pd.to_numeric(df["longitude"], errors="coerce")
