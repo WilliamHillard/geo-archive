@@ -160,7 +160,7 @@ PRI,PR,Puerto Rico (US),Puerto Rico (US),San Juan,Latin America & Caribbean ,-66
 PRK,KP,"Korea, Dem. People's Rep.",North Korea,Pyongyang,East Asia & Pacific,125.754,39.0319,Low income,Not classified
 PRT,PT,Portugal,Portugal,Lisbon,Europe & Central Asia,-9.13552,38.7072,High income,Not classified
 PRY,PY,Paraguay,Paraguay,Asuncion,Latin America & Caribbean ,-57.6362,-25.3005,Upper middle income,IBRD
-PSE,PS,West Bank and Gaza,West Bank and Gaza,,"Middle East, North Africa, Afghanistan & Pakistan",,,Lower middle income,Not classified
+PSE,PS,West Bank and Gaza,Palestine,,"Middle East, North Africa, Afghanistan & Pakistan",,,Lower middle income,Not classified
 PYF,PF,French Polynesia,French Polynesia,Papeete,East Asia & Pacific,-149.57,-17.535,High income,Not classified
 QAT,QA,Qatar,Qatar,Doha,"Middle East, North Africa, Afghanistan & Pakistan",51.5082,25.2948,High income,Not classified
 ROU,RO,Romania,Romania,Bucharest,Europe & Central Asia,26.0979,44.4479,High income,IBRD
@@ -174,12 +174,12 @@ SLB,SB,Solomon Islands,Solomon Islands,Honiara,East Asia & Pacific,159.949,-9.42
 SLE,SL,Sierra Leone,Sierra Leone,Freetown,Sub-Saharan Africa ,-13.2134,8.4821,Low income,IDA
 SLV,SV,El Salvador,El Salvador,San Salvador,Latin America & Caribbean ,-89.2073,13.7034,Upper middle income,IBRD
 SMR,SM,San Marino,San Marino,San Marino,Europe & Central Asia,12.4486,43.9322,High income,Not classified
-SOM,SO,"Somalia, Fed. Rep.","Somalia, Fed. Rep.",Mogadishu,Sub-Saharan Africa ,45.3254,2.07515,Low income,IDA
+SOM,SO,"Somalia, Fed. Rep.",Somalia,Mogadishu,Sub-Saharan Africa ,45.3254,2.07515,Low income,IDA
 SRB,RS,Serbia,Serbia,Belgrade,Europe & Central Asia,20.4656,44.8024,Upper middle income,IBRD
 SSD,SS,South Sudan,South Sudan,Juba,Sub-Saharan Africa ,31.6,4.85,Low income,IDA
 STP,ST,Sao Tome and Principe,Sao Tome and Principe,Sao Tome,Sub-Saharan Africa ,6.6071,0.20618,Lower middle income,IDA
 SUR,SR,Suriname,Suriname,Paramaribo,Latin America & Caribbean ,-55.1679,5.8232,Upper middle income,Blend
-SVK,SK,Slovak Republic,Slovak Republic,Bratislava,Europe & Central Asia,17.1073,48.1484,High income,Not classified
+SVK,SK,Slovak Republic,Slovakia,Bratislava,Europe & Central Asia,17.1073,48.1484,High income,Not classified
 SVN,SI,Slovenia,Slovenia,Ljubljana,Europe & Central Asia,14.5044,46.0546,High income,Not classified
 SWE,SE,Sweden,Sweden,Stockholm,Europe & Central Asia,18.0645,59.3327,High income,Not classified
 SWZ,SZ,Eswatini,Eswatini,Mbabane,Sub-Saharan Africa ,31.4659,-26.5225,Lower middle income,Blend
@@ -208,11 +208,11 @@ VCT,VC,St. Vincent and the Grenadines,St. Vincent and the Grenadines,Kingstown,L
 VEN,VE,"Venezuela, RB",Venezuela,Caracas,Latin America & Caribbean ,-69.8371,9.08165,Lower middle income,IBRD
 VGB,VG,British Virgin Islands,British Virgin Islands,Road Town,Latin America & Caribbean ,-64.623056,18.431389,High income,Not classified
 VIR,VI,Virgin Islands (U.S.),Virgin Islands (U.S.),Charlotte Amalie,Latin America & Caribbean ,-64.8963,18.3358,High income,Not classified
-VNM,VN,Viet Nam,Viet Nam,Hanoi,East Asia & Pacific,105.825,21.0069,Upper middle income,IBRD
+VNM,VN,Viet Nam,Vietnam,Hanoi,East Asia & Pacific,105.825,21.0069,Upper middle income,IBRD
 VUT,VU,Vanuatu,Vanuatu,Port-Vila,East Asia & Pacific,168.321,-17.7404,Lower middle income,IDA
 WSM,WS,Samoa,Samoa,Apia,East Asia & Pacific,-171.752,-13.8314,Upper middle income,IDA
 XKX,XK,Kosovo,Kosovo,Pristina,Europe & Central Asia,20.926,42.565,Upper middle income,IDA
-YEM,YE,"Yemen, Rep.","Yemen, Rep.",Sana'a,"Middle East, North Africa, Afghanistan & Pakistan",44.2075,15.352,Low income,IDA
+YEM,YE,"Yemen, Rep.",Yemen,Sana'a,"Middle East, North Africa, Afghanistan & Pakistan",44.2075,15.352,Low income,IDA
 ZAF,ZA,South Africa,South Africa,Pretoria,Sub-Saharan Africa ,28.1871,-25.746,Upper middle income,IBRD
 ZMB,ZM,Zambia,Zambia,Lusaka,Sub-Saharan Africa ,28.2937,-15.3982,Lower middle income,IDA
 ZWE,ZW,Zimbabwe,Zimbabwe,Harare,Sub-Saharan Africa ,31.0672,-17.8312,Lower middle income,Blend

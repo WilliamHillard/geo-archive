@@ -52,6 +52,12 @@ def transform_countries():
         "Brunei Darussalam": "Brunei",
         "Bahamas, The": "Bahamas",
         "Gambia, The": "Gambia",
+        "Somalia, Fed. Rep.": "Somalia",
+        "Yemen, Rep.": "Yemen",
+        "Viet Nam": "Vietnam",
+        "West Bank and Gaza": "Palestine",
+        "St. Martin (French Part)": "Saint Martin (France)",
+        "Slovak Republic": "Slovakia"
     }
 
     df["real_country_name"] = df["country_name"].replace(real_country_name)
