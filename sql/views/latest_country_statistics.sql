@@ -1,6 +1,6 @@
 -- View, latest statistics for every country
 
-create view latest_country_statistics as
+create  or replace view latest_country_statistics as
 with latest_population as (
 	select p.*,
 		row_number() over (
@@ -42,7 +42,23 @@ latest_urban_population as (
 			partition by ur.iso3
 			order by ur.year desc)
 			as rn
-		from urban_population ur)
+		from urban_population ur),
+latest_net_migration as (
+	select nm.*,
+		row_number() over (
+			partition by nm.iso3
+			order by nm.year desc)
+			as rn
+		from net_migration nm
+		where net_migration is not null),
+latest_unemployment as (
+	select un.*,
+		row_number() over (
+			partition by un.iso3
+			order by un.year desc)
+			as rn
+		from unemployment un
+		where unemployment is not null)
 select 
 	c.iso3 as "ISO3",
 	c.country_name as "Country",
@@ -58,7 +74,11 @@ select
 	inf.year as "Inflation year",
 	inf.inflation as "Inflation",
 	ur.year as "Urban population year",
-	ur.urban_population as "Urban population"
+	ur.urban_population as "Urban population",
+	nm.year as "Net migration year",
+	nm.net_migration as "Net migration",
+	un.year as "Unemployment year",
+	un.unemployment as "Unemployment"
 from countries c
 left join latest_population p
 	on c.iso3 = p.iso3
@@ -78,3 +98,9 @@ left join latest_inflation inf
 left join latest_urban_population ur
 	on c.iso3 = ur.iso3
 	and ur.rn= 1
+left join latest_net_migration nm
+	on c.iso3 = nm.iso3
+	and nm.rn = 1
+left join latest_unemployment un
+	on c.iso3 = un.iso3
+	and un.rn = 1
