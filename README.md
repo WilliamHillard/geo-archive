@@ -13,3 +13,4 @@ Current progress:
 - ✅ Data analysis using SQL
 - ✅ SQL views
 - 🔄 Power BI dashboard
+- 🔄 Website and AI integration
